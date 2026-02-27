@@ -59,6 +59,7 @@ Pour production : chiffrer tout le fichier et ajouter un HMAC global.
 🔹 Installation de libsodium (Linux/macOS)
 sudo apt install libsodium-dev       # Ubuntu/Debian
 brew install libsodium               # macOS
+
 🔹 Licence
 
 Ce projet est open-source à titre éducatif.
