@@ -43,6 +43,8 @@ Bash
 
 ./password_manager
 
+```
+
 ⚠️ Limitations connues
 
     Saisie en clair : Le mot de passe maître s'affiche dans le terminal lors de la saisie.
