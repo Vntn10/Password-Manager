@@ -1,68 +1,66 @@
-📚 Simple Local Password Manager in C
+# 🔐 Simple Local Password Manager in C
 
-Description :
-Ce projet est un gestionnaire de mots de passe local éducatif écrit en C utilisant libsodium pour le chiffrement et Argon2id pour le hachage. Il permet de stocker et lister des mots de passe protégés par un mot de passe maître.
+![Language](https://img.shields.io/badge/Language-C-blue.svg)
+![Security](https://img.shields.io/badge/Security-libsodium-green.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS-lightgrey.svg)
 
-⚠️ Attention : Ce projet est uniquement pédagogique. Il n’est pas conçu pour un usage réel.
-Ne stockez jamais vos mots de passe réels ici.
+## 📝 Description
+Ce projet est un **gestionnaire de mots de passe local éducatif**. Il utilise la bibliothèque **libsodium** pour implémenter des standards de cryptographie modernes comme **Argon2id** (hachage) et **XSalsa20-Poly1305** (chiffrement).
 
-🔹 Fonctionnalités
+> [!CAUTION]
+> **Projet pédagogique uniquement.** Ce programme n'est pas conçu pour un usage réel en production. Ne stockez jamais vos mots de passe personnels ici.
 
-Crée et vérifie un mot de passe maître.
+---
 
-Stocke les mots de passe par service dans un fichier chiffré.
+## ✨ Fonctionnalités
+* **Authentification Maître** : Création et vérification d'un mot de passe principal via Argon2id.
+* **Coffre-fort Chiffré** : Stockage binaire des secrets par service.
+* **Lecture Sécurisée** : Déchiffrement à la volée pour lister vos comptes.
+* **Outils de Robustesse** : Analyse de complexité et générateur de mots de passe aléatoires sécurisés.
+* **Gestion Mémoire** : Utilisation de `sodium_memzero` pour effacer les données sensibles de la RAM.
 
-Affiche la liste des secrets après déchiffrement.
 
-Analyse et génère des mots de passe pour vérifier leur robustesse.
 
-Utilise Argon2id (MODERATE) et crypto_secretbox pour sécuriser les données.
+---
 
-🔹 Comment l’utiliser
+## 🛠️ Installation & Utilisation
 
-Compiler le programme :
+### 1. Prérequis (Installation de libsodium)
+```bash
+# Ubuntu / Debian
+sudo apt install libsodium-dev
+
+# macOS
+brew install libsodium
+
+2. Compilation
+Bash
 
 gcc -o password_manager password_manager.c -lsodium
 
-Lancer l’application :
+3. Lancer l'application
+Bash
 
 ./password_manager
 
-Suivre le menu pour :
+⚠️ Limitations connues
 
-Lister les secrets
+    Saisie en clair : Le mot de passe maître s'affiche dans le terminal lors de la saisie.
 
-Ajouter un secret
+    Taille fixe : Mots de passe limités à 30 caractères (Buffer fixe).
 
-Analyser ou générer un mot de passe
+    Portabilité : Écriture directe de structures C en binaire (dépend de l'architecture).
 
-🔹 Limitations connues
+    Sécurité OS : Pas de verrouillage de la mémoire (mlock), données potentiellement vulnérables au swap.
 
-La saisie du mot de passe maître n’est pas masquée à l’écran.
+🎓 Axes d'amélioration (Pédagogie)
 
-La longueur des mots de passe est actuellement limitée à 30 caractères.
+    Utiliser getpass() ou termios.h pour masquer la saisie utilisateur.
 
-Les structures sont écrites dans le fichier binaire directement (non portable).
+    Passer à une allocation dynamique (malloc) pour gérer des secrets de tailles illimitées.
 
-Pas de protection contre la corruption du fichier .vault.bin.
+    Ajouter un HMAC global pour vérifier l'intégrité totale du fichier .vault.bin.
 
-Les données sont stockées localement sans verrouillage mémoire, donc vulnérables si l’ordinateur est compromis.
+📄 Licence
 
-🔹 Bonnes pratiques pédagogiques
-
-Pour sécuriser vraiment le mot de passe maître, utiliser getpass() pour masquer l’entrée.
-
-Pour supprimer la limite des mots de passe, utiliser une allocation dynamique.
-
-Pour production : chiffrer tout le fichier et ajouter un HMAC global.
-
-🔹 Installation de libsodium (Linux/macOS)
-
-sudo apt install libsodium-dev       # Ubuntu/Debian
-
-brew install libsodium               # macOS
-
-🔹 Licence
-
-Ce projet est open-source à titre éducatif.
-Pas de garantie de sécurité pour usage réel.
+Ce projet est open-source à titre éducatif. Aucune garantie de sécurité n'est fournie pour un usage réel.
