@@ -54,11 +54,11 @@ gcc -o password_manager password_manager.c -lsodium
 
 🎓 Axes d'amélioration (Pédagogie)
 
-* **Utiliser getpass() ou termios.h pour masquer la saisie utilisateur.
+* **Utiliser getpass()** ou **termios.h** pour masquer la saisie utilisateur.
 
-* **Passer à une allocation dynamique (malloc) pour gérer des secrets de tailles illimitées.
+* **Passer à une allocation dynamique** (malloc) pour gérer des secrets de tailles illimitées.
 
-* **Ajouter un HMAC global pour vérifier l'intégrité totale du fichier .vault.bin.
+* **Ajouter un HMAC global** pour vérifier l'intégrité totale du fichier .vault.bin.
 
 📄 Licence
 
