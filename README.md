@@ -57,7 +57,9 @@ Pour supprimer la limite des mots de passe, utiliser une allocation dynamique.
 Pour production : chiffrer tout le fichier et ajouter un HMAC global.
 
 🔹 Installation de libsodium (Linux/macOS)
+
 sudo apt install libsodium-dev       # Ubuntu/Debian
+
 brew install libsodium               # macOS
 
 🔹 Licence
