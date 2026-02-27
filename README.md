@@ -32,36 +32,33 @@ sudo apt install libsodium-dev
 
 # macOS
 brew install libsodium
+```
 
-2. Compilation
-Bash
+### 2. Compilation
+```Bash
 
 gcc -o password_manager password_manager.c -lsodium
-
-3. Lancer l'application
-Bash
+```
+### 3. Lancer l'application
+```Bash
 
 ./password_manager
 
 ```
 
-⚠️ Limitations connues
-
-    Saisie en clair : Le mot de passe maître s'affiche dans le terminal lors de la saisie.
-
-    Taille fixe : Mots de passe limités à 30 caractères (Buffer fixe).
-
-    Portabilité : Écriture directe de structures C en binaire (dépend de l'architecture).
-
-    Sécurité OS : Pas de verrouillage de la mémoire (mlock), données potentiellement vulnérables au swap.
+## ⚠️ Limitations connues
+* **Saisie en clair** : Le mot de passe maître s'affiche dans le terminal lors de la saisie.
+* **Taille fixe** : Mots de passe limités à 30 caractères (Buffer fixe).
+* **Portabilité** : Écriture directe de structures C en binaire (dépend de l'architecture).
+* **Sécurité OS** : Pas de verrouillage de la mémoire (mlock), données potentiellement vulnérables au swap.
 
 🎓 Axes d'amélioration (Pédagogie)
 
-    Utiliser getpass() ou termios.h pour masquer la saisie utilisateur.
+* **Utiliser getpass() ou termios.h pour masquer la saisie utilisateur.
 
-    Passer à une allocation dynamique (malloc) pour gérer des secrets de tailles illimitées.
+* **Passer à une allocation dynamique (malloc) pour gérer des secrets de tailles illimitées.
 
-    Ajouter un HMAC global pour vérifier l'intégrité totale du fichier .vault.bin.
+* **Ajouter un HMAC global pour vérifier l'intégrité totale du fichier .vault.bin.
 
 📄 Licence
 
